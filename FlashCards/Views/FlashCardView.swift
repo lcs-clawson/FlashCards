@@ -7,12 +7,21 @@
 
 import SwiftUI
 
-struct FlashCardView: View {
-    var body: some View {
-        Text("FlashCards")
-    }
+struct FlashCards {
+    let question:String
+    let answer:String
 }
 
+struct FlashCardView: View {
+    var body: some View {
+        
+        VStack {
+            Text("FlashCards")
+        }
+        
+        
+    }
+}
 struct FlashCardView_Previews: PreviewProvider {
     static var previews: some View {
         FlashCardView()
