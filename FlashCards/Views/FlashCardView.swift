@@ -19,12 +19,18 @@ struct FlashCardView: View {
             Text("Question")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                
+            
                 .padding()
             
-            Text("Button")
+            Button(action: {
                 
-                .padding()
+                print("Button was pressed")
+            }, label: {
+                Text("Answer")
+            })
+            .buttonStyle(.borderedProminent)
+            
+            .padding()
             
             Text("Answer")
                 .font(.title)
@@ -32,8 +38,10 @@ struct FlashCardView: View {
         }
         
         
+        
+        }
     }
-}
+
 struct FlashCardView_Previews: PreviewProvider {
     static var previews: some View {
         FlashCardView()
