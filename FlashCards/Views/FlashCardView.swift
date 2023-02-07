@@ -16,7 +16,19 @@ struct FlashCardView: View {
     var body: some View {
         
         VStack {
-            Text("FlashCards")
+            Text("Question")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                
+                .padding()
+            
+            Text("Button")
+                
+                .padding()
+            
+            Text("Answer")
+                .font(.title)
+                .fontWeight(.semibold)
         }
         
         
