@@ -15,27 +15,28 @@ struct FlashCards {
 struct FlashCardView: View {
     var body: some View {
         
-        VStack {
-            Text("Question")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-                .padding()
-            
-            Button(action: {
+        
+            VStack {
+                Text("Question")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
                 
-                print("Button was pressed")
-            }, label: {
+                    .padding()
+                
+                Button(action: {
+                    
+                    print("Here is the answer")
+                }, label: {
+                    Text("Answer")
+                })
+                .buttonStyle(.borderedProminent)
+                
+                .padding()
+                
                 Text("Answer")
-            })
-            .buttonStyle(.borderedProminent)
-            
-            .padding()
-            
-            Text("Answer")
-                .font(.title)
-                .fontWeight(.semibold)
-        }
+                    .font(.title)
+                    .fontWeight(.semibold)
+            }
         
         
         
