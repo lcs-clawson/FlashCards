@@ -12,9 +12,14 @@ struct FlashCards {
     let answer:String
 }
 
+let flashCards = [
+    FlashCards(question: "What is the fastest land animal?", answer: "Cheetah"),
+    FlashCards(question: "What is the deadliest animal?", answer: "Mosquito"),
+    FlashCards(question: "What is the biggest animal?", answer: "Blue Whale"),
+]
 struct FlashCardView: View {
     var body: some View {
-        
+
         
             VStack {
                 Text("Question")
@@ -36,10 +41,8 @@ struct FlashCardView: View {
                 Text("Answer")
                     .font(.title)
                     .fontWeight(.semibold)
+           
             }
-        
-        
-        
         }
     }
 
