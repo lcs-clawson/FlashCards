@@ -1,16 +1,19 @@
 import SwiftUI
 
+
+// MARK Stored Properties
 struct Cards: Identifiable {
     let id = UUID()
     let question:String
     let answer:String
 }
 
-
 let flashCards = [
     Cards(question: "What is the fastest land animal?", answer: "Cheetah"),
     Cards(question: "What is the deadliest animal?", answer: "Mosquito"),
     Cards(question: "What is the biggest animal?", answer: "Blue Whale"),
+    Cards(question: "What is the closest living relative to the T-rex?", answer: "Chicken"),
+    Cards(question: "What male sea creature gives birth to its young?", answer: "Seahorse")
 ]
 struct FlashCardView: View {
     @State private var currentIndex = 0
