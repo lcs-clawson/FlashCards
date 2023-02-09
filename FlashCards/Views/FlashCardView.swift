@@ -1,10 +1,3 @@
-//
-//  FlashCardView.swift
-//  FlashCards
-//
-//  Created by Cooper Lawson on 2023-02-07.
-//
-
 import SwiftUI
 
 struct Cards: Identifiable {
@@ -20,26 +13,30 @@ let flashCards = [
     Cards(question: "What is the biggest animal?", answer: "Blue Whale"),
 ]
 struct FlashCardView: View {
-    var body: some View {
-        ForEach(flashCards) {flashCards in
-            VStack {
-                Text(flashCards.question)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding()
+    @State private var currentIndex = 0
 
-                Button(action: {
-                    print("Here is the answer: \(flashCards.answer)")
-                        }, label: {
-                        Text("Answer")
-                })
-                .buttonStyle(.borderedProminent)
+    var body: some View {
+        VStack {
+            Text(flashCards[currentIndex].question)
+                .font(.largeTitle)
+                .fontWeight(.bold)
                 .padding()
 
-                Text(flashCards.answer)
-                    .font(.title)
-                    .fontWeight(.semibold)
-            }
+            Button(action: {
+                if self.currentIndex + 1 < flashCards.count {
+                    self.currentIndex += 1
+                } else {
+                    self.currentIndex = 0
+                }
+            }, label: {
+                Text("Next")
+            })
+            .buttonStyle(.borderedProminent)
+            .padding()
+
+            Text(flashCards[currentIndex].answer)
+                .font(.title)
+                .fontWeight(.semibold)
         }
     }
 }
@@ -50,3 +47,4 @@ struct FlashCardView_Previews: PreviewProvider {
         FlashCardView()
     }
 }
+
