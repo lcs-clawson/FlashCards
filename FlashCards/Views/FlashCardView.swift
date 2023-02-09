@@ -7,44 +7,42 @@
 
 import SwiftUI
 
-struct FlashCards {
+struct Cards: Identifiable {
     let question:String
     let answer:String
 }
 
+
 let flashCards = [
-    FlashCards(question: "What is the fastest land animal?", answer: "Cheetah"),
-    FlashCards(question: "What is the deadliest animal?", answer: "Mosquito"),
-    FlashCards(question: "What is the biggest animal?", answer: "Blue Whale"),
+    Cards(question: "What is the fastest land animal?", answer: "Cheetah"),
+    Cards(question: "What is the deadliest animal?", answer: "Mosquito"),
+    Cards(question: "What is the biggest animal?", answer: "Blue Whale"),
 ]
 struct FlashCardView: View {
     var body: some View {
-
-        
+        ForEach(flashCards) {flashCards in
             VStack {
-                Text("Question")
+                Text(flashCards.question)
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                
                     .padding()
-                
+
                 Button(action: {
-                    
-                    print("Here is the answer")
-                }, label: {
-                    Text("Answer")
+                    print("Here is the answer: \(flashCards.answer)")
+                        }, label: {
+                        Text("Answer")
                 })
                 .buttonStyle(.borderedProminent)
-                
                 .padding()
-                
-                Text("Answer")
+
+                Text(flashCards.answer)
                     .font(.title)
                     .fontWeight(.semibold)
-           
             }
         }
     }
+}
+
 
 struct FlashCardView_Previews: PreviewProvider {
     static var previews: some View {
