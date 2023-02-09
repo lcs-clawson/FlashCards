@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Cards: Identifiable {
+    let id = UUID()
     let question:String
     let answer:String
 }
