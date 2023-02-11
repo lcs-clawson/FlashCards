@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 // MARK Stored Properties
 struct Cards: Identifiable {
     let id = UUID()
@@ -25,17 +24,31 @@ struct FlashCardView: View {
                 .fontWeight(.bold)
                 .padding()
 
-            Button(action: {
-                if self.currentIndex + 1 < flashCards.count {
-                    self.currentIndex += 1
-                } else {
-                    self.currentIndex = 0
-                }
-            }, label: {
-                Text("Next")
-            })
-            .buttonStyle(.borderedProminent)
-            .padding()
+            HStack {
+                Button(action: {
+                    if self.currentIndex - 1 >= 0 {
+                        self.currentIndex -= 1
+                    } else {
+                        self.currentIndex = flashCards.count - 1
+                    }
+                }, label: {
+                    Text("Previous")
+                })
+                .buttonStyle(.borderedProminent)
+                .padding()
+                
+                Button(action: {
+                    if self.currentIndex + 1 < flashCards.count {
+                        self.currentIndex += 1
+                    } else {
+                        self.currentIndex = 0
+                    }
+                }, label: {
+                    Text("Next")
+                })
+                .buttonStyle(.borderedProminent)
+                .padding()
+            }
 
             Text(flashCards[currentIndex].answer)
                 .font(.title)
